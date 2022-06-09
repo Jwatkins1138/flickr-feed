@@ -1,0 +1,49 @@
+
+<div id='tile-box'>
+  <div class="button-box">
+    <%= form_with url: root_path, method: :get do |f| %>
+      <%= f.text_field name='search[user]', class: 'input', placeholder: 'user id' %>
+      <%= f.hidden_field name='page[value]', value: 0 %>
+    </div>  
+    <div class="button-box">  
+      <%= f.submit 'search' %>
+    <% end %>
+  </div>
+</div> 
+<div id='tile-box'>
+  <% @urls[@page].each do |u| %>
+    <div id='pic-tile'>
+      <img src='<%=u%>'>
+    </div>
+  <% end %>
+ </div>
+ <div id='tile-box'>
+  <div id='pic-tile'>
+    <div class='button-box'>
+      <% if @page > 0 %>
+        <%= form_with url: root_path, method: :get do |f| %>
+        <%= f.hidden_field name='search[user]', value: @user %>
+        <%= f.hidden_field name='page[value]', value: @page - 1 %>
+        <%= f.submit 'prev' %>
+        <% end %>
+      <% else %>
+        <button class='disabled'>prev</button>  
+      <% end %>  
+      <p>page <%= @page + 1 %> of <%= @urls.length %></p>
+      <% if @page < @urls.length - 1 %>
+        <%= form_with url: root_path, method: :get do |f| %>
+        <%= f.hidden_field name='search[user]', value: @user %>
+        <%= f.hidden_field name='page[value]', value: @page + 1 %>
+        <%= f.submit 'next' %>
+        <% end %>
+      <% else %>
+        <button class='disabled'>next</button>
+      <% end %>  
+    </div>
+  </div>
+ </div>   
+ 
+
+
+
+

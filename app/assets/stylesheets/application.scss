@@ -13,3 +13,36 @@
  *= require_tree .
  *= require_self
  */
+
+
+@import 'bulma';
+
+#tile-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+}
+
+#pic-tile {
+  width: 250px;
+  padding: 5px;
+}
+
+#pic {
+  padding: 5px;
+}
+
+.control {
+  display: flex;
+  flex-direction: row;
+}
+
+.button-box {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.disabled {
+  color: grey;
+}

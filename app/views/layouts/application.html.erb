@@ -11,6 +11,18 @@
   </head>
 
   <body>
+    <% if flash[:notice] %>
+      <div class='notification is-danger global-notification'>
+        <p class='notice'><%= notice %></p>
+      </div>
+    <% end %>
+    <section class='hero is-info'>
+      <div class='hero-body'>
+        <div class='container has-text-centered'>
+          <p class='title'><%= link_to 'flickr-feed', root_path %></p>
+        </div>
+      </div>
+    </section>  
     <%= yield %>
   </body>
 </html>
